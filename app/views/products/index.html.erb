@@ -20,14 +20,13 @@
     <td><span class="product_title"><%= link_to product.title, product_path(product) %></td>
     <td><%= print_price(product.price)%></td>
     <td><%= product.description %></td>
-    <td><%= image_tag "products/#{product.image_url}" %></td>
+
+    <!-- <td><%= image_tag "products/#{product.image_url}" %></td> -->
   </tr>
 <% end %>
   </tbody>
 </table>
+<!-- <p><%= link_to "Create a New Product", new_product_path, id: "new_product" %></p> -->
 
 <br>
-
-
-
-<p><%= link_to "Create a New Product", new_product_path, id: "new_product" %></p>
+<%= link_to 'Create Product', new_product_path %>
