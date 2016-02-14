@@ -4,23 +4,32 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items
   # GET /order_items.json
- 
+ def new
+  @order_items = OrderItem.new
+ end
+
+ def index
+ end
+ def show
+   
+ end
 
   # POST /order_items
   # POST /order_items.json
   def create
-    @order_item = OrderItem.new(product_id: params[:product_id], order_id: @order.id)
+  @order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id])
 
-    respond_to do |format|
-      if @order_item.save
-        format.html { redirect_to @order, notice: 'successfully added product to cart' }
-        format.json { render :show, status: :created, location: @order_item }
-      else
-        format.html { render :new }
-        format.json { render json: @order_item.errors, status: :unprocessable_entity }
-      end
+  respond_to do |format|
+    if @order_item.save
+      format.html { redirect_to @order, notice: 'Successfully added product to cart.' }
+      format.json { render action: 'show', status: :created, location: @order_item }
+    else
+      format.html { render action: 'new' }
+      format.json { render json: @order_item.errors, status: :unprocessable_entity }
     end
   end
+end
+
 
   # PATCH/PUT /order_items/1
   # PATCH/PUT /order_items/1.json
@@ -58,10 +67,9 @@ class OrderItemsController < ApplicationController
     end
     def load_order
       @order = Order.find_or_initialize_by_id(session[:order_id], status: "unsubmitted")
-    if @order.new_record?
-      @order.save!
-      session[:order_id] = @order.id
+      if @order.new_record?
+        @order.save!
+        session[:order_id] = @order.id
+      end
     end
-
-
-end
+  end
