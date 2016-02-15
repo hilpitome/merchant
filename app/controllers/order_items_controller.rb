@@ -4,19 +4,12 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items
   # GET /order_items.json
- def new
-  @order_items = OrderItem.new
- end
 
- def index
- end
- def show
-   
- end
 
   # POST /order_items
   # POST /order_items.json
   def create
+ 
   @order_item = @order.order_items.new(quantity: 1, product_id: params[:product_id])
 
   respond_to do |format|
@@ -66,10 +59,11 @@ end
       params.require(:order_item).permit(:product_id, :order_id, :quantity)
     end
     def load_order
-      @order = Order.find_or_initialize_by_id(session[:order_id], status: "unsubmitted")
-      if @order.new_record?
-        @order.save!
-        session[:order_id] = @order.id
+      begin
+       @order = Order.find(session[:order_id])
+      rescue ActiveRecord::RecordNotFound
+       @order = Order.create(status: "unsubmitted")
+       session[:order_id] = @order.id
       end
     end
   end
