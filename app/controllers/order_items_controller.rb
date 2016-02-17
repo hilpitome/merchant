@@ -4,8 +4,7 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items
   # GET /order_items.json
-
-
+  
   # POST /order_items
   # POST /order_items.json
   def create

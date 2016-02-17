@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all
   end
-
+ 
   # GET /orders/1
   # GET /orders/1.json
   def show
@@ -20,6 +20,7 @@ class OrdersController < ApplicationController
   # GET /orders/1/edit
   def edit
   end
+  
 
   # POST /orders
   # POST /orders.json
@@ -60,6 +61,8 @@ class OrdersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  
 
   private
     # Use callbacks to share common setup or constraints between actions.

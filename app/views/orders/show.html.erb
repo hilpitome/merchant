@@ -1,3 +1,4 @@
+
 <h1>Your Order</h1>
 
 <table>
@@ -11,7 +12,7 @@
   </tr>
   <tr>
     <th>Items:</th>
-    <td><%= @order.order_items.count %></td>
+    <td><%= @order.order_items.to_s.length %></td>
   </tr>
   <tr>
     <th>Item</th>
@@ -27,11 +28,12 @@
    	<td><%= item.product.title %></td>
    	<td><%= item.quantity %></td>
    	<td><%= print_price(item.product.price) %></td>
-   	<td><%= print_price item.subtotal(item.quantity, item.product.price) %></td>
+   	<td><%= print_price (item.subtotal(item.quantity, item.product.price)) %></td>
    </tr>
   <% end %>
+
     <tr>
      <th>Order Total</th>	
-     <td><%= total %></td>
+     <td><%=  print_price (@order.total(@order.order_items)) %></td>
     </tr>
 </table>
