@@ -5,7 +5,9 @@ class OrderItemsController < ApplicationController
 
   # GET /order_items
   # GET /order_items.json
-  
+  def index
+    @order_items = OrderItem.all
+  end
   # POST /order_items
   # POST /order_items.json
   def create

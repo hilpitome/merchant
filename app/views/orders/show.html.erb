@@ -37,4 +37,8 @@
      <th>Order Total</th>	
      <td><%=  print_price (@order.total(@order.order_items)) %></td>
     </tr>
-</table>
+    <tr>
+      <td><%= link_to "Empty Cart", @order, data: { confirm: 'Are you sure?' }, method: :delete %>
+      </td>
+    </tr>
+    </table>
