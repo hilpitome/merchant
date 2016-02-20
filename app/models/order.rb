@@ -5,6 +5,9 @@ class Order < ActiveRecord::Base
 
 	
     def total(p)
+    # p being the instance of the order
+    # t is the counter for total
+    # m iterates over each order item
 
 	 t = 0 
 
