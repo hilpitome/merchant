@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Products</h1>
+
 
 <table>
   <thead>
@@ -20,7 +20,7 @@
     <td><%= print_price(product.price)%></td>
     <td><%= print_stock(product.stock)%></td>
     <td><%= product.description %></td>
-    <td><%= image_tag "products/#{product.image_url}" %></td> 
+    <td><%= image_tag "products/#{product.image_url}" %></td>
     <td><%= button_to "Add to Cart", order_items_path(product_id: product.id) %></td>
 
   </tr>
