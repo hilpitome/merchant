@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem "omniauth-twitter"
+gem "paperclip"
 gem 'aws-sdk', '~> 2.2', '>= 2.2.14'
 
 
