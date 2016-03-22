@@ -13,12 +13,12 @@
 <p>
   <strong>Description:</strong>
   <%= @product.description %>
-</p>
+</p></br>
 
 <p>
-  <strong>Image url:</strong>
-  <%= @product.image_url %>
-</p>
+  <strong>Image:</strong></p><br>
+  <%= image_tag @product.image %>
+</p><br>
 
 
 <%= link_to 'Edit', edit_product_path(@product) %> |
